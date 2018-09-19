@@ -32,8 +32,6 @@ class MapPageState extends State<MapPage> {
 
       ),
 
-
-
       drawer: new Drawer(
         child: new ListView(
           children: <Widget>[
