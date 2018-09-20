@@ -40,7 +40,8 @@ class MapPageState extends State<MapPage> {
                 accountEmail: new Text('jd@gmail.com'),
               currentAccountPicture: new CircleAvatar(
                 backgroundColor: Colors.black26,
-                child: new Text('J'),
+                
+                backgroundImage: NetworkImage('https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
               ),
               decoration: new BoxDecoration(
                 color: Colors.orange
