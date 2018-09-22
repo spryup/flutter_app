@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profilePage.dart';
+import 'inbox.dart';
 import 'main.dart';
 import 'profile.dart';
 
@@ -40,7 +41,7 @@ class MapPageState extends State<MapPage> {
                 accountEmail: new Text('jd@gmail.com'),
               currentAccountPicture: new CircleAvatar(
                 backgroundColor: Colors.black26,
-                
+
                 backgroundImage: NetworkImage('https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
               ),
               decoration: new BoxDecoration(
@@ -58,16 +59,15 @@ class MapPageState extends State<MapPage> {
               },
 
             ),
-            new ListTile(
-              title: new Text("Advanced Search"),
-              trailing: new Icon(Icons.arrow_forward),
 
-            ),
             new ListTile(
-              title: new Text("page 3"),
-              trailing: new Icon(Icons.close),
+              title: new Text("inbox"),
+              trailing: new Icon(Icons.message),
               onTap: (){
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InboxPage())
+                );
                 },
 
             ),
