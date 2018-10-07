@@ -7,3 +7,9 @@
 build/
 
 .flutter-plugins
+.idea
+.metadata
+
+lib/keys.dart
+
+android/app/src/main/res/values/secrets.xml
