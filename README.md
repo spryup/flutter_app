@@ -1,9 +1,3 @@
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
-
-
 ## Initialize Android Maps Secret key as hidden file
 
 - Create lib/keys.dart file, and write ```const googleMapsKey = 'Maps-Key';```
