@@ -165,7 +165,7 @@ class MapPageState extends State<MapPage> {
             ),
 
             new ListTile(
-              title: new Text("inbox"),
+              title: new Text("Inbox"),
               trailing: new Icon(Icons.message),
               onTap: (){
                 Navigator.push(
@@ -176,7 +176,7 @@ class MapPageState extends State<MapPage> {
 
             ),
             new ListTile(
-              title: new Text("sign Out"),
+              title: new Text("Sign Out"),
               trailing: new Icon(Icons.error_outline),
               onTap: (){
                 Navigator.push(

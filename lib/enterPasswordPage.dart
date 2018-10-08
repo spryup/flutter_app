@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'mapPage.dart';
 
 class enterPassword extends StatelessWidget {
   @override
@@ -7,6 +7,7 @@ class enterPassword extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Enter password"),
+        backgroundColor: Colors.orange,
       ),
       body: new Container(
         padding: const EdgeInsets.all(40.0),
@@ -15,7 +16,7 @@ class enterPassword extends StatelessWidget {
           children: <Widget>[
             new TextFormField(
               decoration: new InputDecoration(
-                  labelText: "new password",
+                  labelText: "New password",
 
               ),
               keyboardType: TextInputType.text,
@@ -23,7 +24,7 @@ class enterPassword extends StatelessWidget {
             ),
             new TextFormField(
               decoration: new InputDecoration(
-                labelText: "confirm password",
+                labelText: "Confirm password",
 
               ),
               keyboardType: TextInputType.text,
@@ -37,12 +38,12 @@ class enterPassword extends StatelessWidget {
                 minWidth: 100.0,
                 color: Colors.teal,
                 textColor: Colors.white,
-                child: new Text("enter"),
+                child: new Text("Enter"),
                 splashColor: Colors.amber,
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MyApp()),
+                    MaterialPageRoute(builder: (context) => MapPage()),
                   );
                 }),
           ],

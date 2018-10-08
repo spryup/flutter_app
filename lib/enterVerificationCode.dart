@@ -6,7 +6,8 @@ class verificationCode extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("verification code"),
+        title: new Text("Verification code"),
+        backgroundColor: Colors.orange,
       ),
         body: new Container(
           padding: const EdgeInsets.all(40.0),
@@ -25,7 +26,7 @@ class verificationCode extends StatelessWidget {
                   minWidth: 100.0,
                   color: Colors.teal,
                   textColor: Colors.white,
-                  child: new Text("next"),
+                  child: new Text("Next"),
                   splashColor: Colors.amber,
                   onPressed: () {
                 Navigator.push(

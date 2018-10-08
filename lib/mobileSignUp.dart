@@ -10,6 +10,7 @@ class secondScreen extends StatelessWidget {
     return new Scaffold(
        appBar:  new AppBar(
         title : new Text("Mobile Sign up"),
+         backgroundColor: Colors.orange,
     ),
     body: new Container(
       padding: const EdgeInsets.all(40.0),

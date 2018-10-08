@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                          ),
                          new TextFormField(
                            decoration: new InputDecoration(
-                               labelText: "Enter password"
+                               labelText: "Enter Password"
                            ),
                            keyboardType: TextInputType.text,
                            obscureText: true,
