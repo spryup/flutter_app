@@ -1,7 +1,3 @@
-# login_page
-
-A new Flutter application.
-
 ## Getting Started
 
 For help getting started with Flutter, view our online
@@ -17,3 +13,4 @@ For help getting started with Flutter, view our online
            <string name="google_maps_api_key">Maps-key</string>
        </resources>
     ```
+- Replace **Maps-key** with actual Google Maps API Key.
