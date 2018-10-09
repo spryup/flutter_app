@@ -24,6 +24,7 @@ class UserDetailBodyState extends State<UserDetailBody> {
         children: <Widget>[
           ClipPath(
             child: Container(
+
               color:Colors.orange.withOpacity(0.8),
             ),
             clipper: getClipper(),
@@ -51,7 +52,8 @@ class UserDetailBodyState extends State<UserDetailBody> {
                 new Padding(
                   padding: const EdgeInsets.only(
                       top:10.0,
-                      left: 8.0
+                      left: 8.0,
+
                   ),
                   child: new Text('John Dow',
                     style: textTheme.headline.copyWith(color: Colors.grey),
@@ -63,16 +65,7 @@ class UserDetailBodyState extends State<UserDetailBody> {
                     ),
                     child: _buildLocationInfo(textTheme),
                 ),
-                new Padding(
-                  padding: const EdgeInsets.only(top: 16.0, left: 8.0),
-                  child: new Text(
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting '
-                        'industry. Lorem Ipsum has been the industry\'s standard dummy '
-                        'text ever since the 1500s.',
-                    style:
-                    textTheme.body1.copyWith(color: Colors.grey, fontSize: 16.0),
-                  ),
-                ),
+               textSection,
               ]
             )
           ),
@@ -82,6 +75,8 @@ class UserDetailBodyState extends State<UserDetailBody> {
     );
   }
 }
+
+
 
 Widget _createPillButton(
     String text, {
@@ -107,6 +102,30 @@ Widget _createPillButton(
       )
   );
 }
+
+//interests
+
+Widget _interest(
+    String text, {
+  Color backgroundColor = Colors.transparent,
+  Color textColor = Colors.white70,
+}) {
+
+
+
+}
+
+
+Widget textSection = Container(
+  padding: const EdgeInsets.all(32.0),
+  child : Text('Lorem Ipsum is simply dummy text of the printing and typesetting\'
+      'industry. Lorem Ipsum has been the industry\'s standard dummy '
+      'text ever since the 1500s.',
+      softWrap: true,
+      style: TextStyle(color: Colors.grey)
+      ),
+
+);
 
 Widget _buildActionButtons() {
   return new Padding(
