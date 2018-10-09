@@ -14,6 +14,8 @@ class UserDetailBody extends StatefulWidget {
 class UserDetailBodyState extends State<UserDetailBody> {
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
+    var textTheme = theme.textTheme;
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.orange,
@@ -44,46 +46,33 @@ class UserDetailBodyState extends State<UserDetailBody> {
                     boxShadow: [BoxShadow(blurRadius: 7.0, color: Colors.black)]
                   ),
                 ),
-                SizedBox(height: 30.0),
-                Text(
-                  'John Doe',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
+                _buildActionButtons(),
+                _buildFollowerInfo(textTheme),
+                new Padding(
+                  padding: const EdgeInsets.only(
+                      top:10.0,
+                      left: 8.0
+                  ),
+                  child: new Text('John Dow',
+                    style: textTheme.headline.copyWith(color: Colors.grey),
                   ),
                 ),
-                SizedBox(height: 15.0),
-                Text(
-                  'Chicago, IL',
-
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-                SizedBox(height: 300.0),
-                Container(
-                  height: 30.0,
-                  width: 95.0,
-                  child: Material(
-                    borderRadius: BorderRadius.circular(20.0),
-                    shadowColor: Colors.greenAccent,
-                    color: Colors.green,
-                    elevation: 7.0,
-                    child: GestureDetector(
-                      onTap: (){
-
-                      },
-                      child: Center(
-                        child: Text(
-                            'Edit Profile',
-                          style: TextStyle(color: Colors.white),
-
-                        )
-                      ),
+                new Padding(
+                    padding: const EdgeInsets.only(
+                        top:6.0
                     ),
-                  )
-                )
+                    child: _buildLocationInfo(textTheme),
+                ),
+                new Padding(
+                  padding: const EdgeInsets.only(top: 16.0, left: 8.0),
+                  child: new Text(
+                    'Lorem Ipsum is simply dummy text of the printing and typesetting '
+                        'industry. Lorem Ipsum has been the industry\'s standard dummy '
+                        'text ever since the 1500s.',
+                    style:
+                    textTheme.body1.copyWith(color: Colors.grey, fontSize: 16.0),
+                  ),
+                ),
               ]
             )
           ),
@@ -94,6 +83,103 @@ class UserDetailBodyState extends State<UserDetailBody> {
   }
 }
 
+Widget _createPillButton(
+    String text, {
+      Color backgroundColor = Colors.transparent,
+      Color textColor = Colors.white70,
+    }) {
+  return new Container(
+    height: 30.0,
+    width: 95.0,
+      child: Material(
+        borderRadius: BorderRadius.circular(20.0),
+        shadowColor: Colors.greenAccent,
+        color: Colors.green,
+        elevation: 7.0,
+        child: GestureDetector(
+          onTap: (){
+
+          },
+          child: Center(
+              child: new Text(text,style: TextStyle(color: Colors.white)),
+          ),
+        ),
+      )
+  );
+}
+
+Widget _buildActionButtons() {
+  return new Padding(
+    padding: const EdgeInsets.only(
+      top: 18.0,
+      left: 16.0,
+      right: 16.0,
+    ),
+    child: new Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        _createPillButton(
+          'CONNECT',
+        ),
+        new DecoratedBox(
+          decoration: new BoxDecoration(
+            border: new Border.all(color: Colors.white30),
+            borderRadius: new BorderRadius.circular(30.0),
+          ),
+          child: _createPillButton(
+            'FOLLOW',
+            textColor: Colors.white70,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _buildFollowerInfo(TextTheme textTheme) {
+  var followerStyle =
+  textTheme.subhead.copyWith(color: Colors.grey);
+
+  return new Padding(
+    padding: const EdgeInsets.only(top: 16.0),
+    child: new Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        new Text('90 Following', style: followerStyle),
+        new Text(
+          ' | ',
+          style: followerStyle.copyWith(
+              fontSize: 24.0, fontWeight: FontWeight.normal),
+        ),
+        new Text('100 Followers', style: followerStyle),
+      ],
+    ),
+  );
+}
+
+
+Widget _buildLocationInfo(TextTheme textTheme) {
+  return new Row(
+    children: <Widget>[
+      new Padding(
+        padding: const EdgeInsets.only(left: 8.0),
+        child: new Icon(
+          Icons.place,
+          color: Colors.grey,
+          size: 16.0,
+        ),
+      ),
+
+      new Padding(
+        padding: const EdgeInsets.only(left: 8.0),
+        child: new Text(
+          'Chicago,IL',
+          style: textTheme.subhead.copyWith(color: Colors.grey),
+        ),
+      ),
+    ],
+  );
+}
 
 class getClipper extends CustomClipper<Path> {
   @override
