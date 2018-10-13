@@ -118,7 +118,7 @@ Widget _interest(
 
 Widget textSection = Container(
   padding: const EdgeInsets.all(32.0),
-  child : Text('Lorem Ipsum is simply dummy text of the printing and typesetting\'
+  child : Text('Lorem Ipsum is simply dummy text of the printing and typesetting '
       'industry. Lorem Ipsum has been the industry\'s standard dummy '
       'text ever since the 1500s.',
       softWrap: true,
