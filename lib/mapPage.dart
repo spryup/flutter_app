@@ -7,6 +7,9 @@ import 'profile.dart';
 import 'package:map_view/map_view.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
 import 'keys.dart';
+
+import 'profile_picture.dart';
+import 'widget_test.dart';
 //import 'package:location/location.dart';
 //import 'package:flutter_map/flutter_map.dart';
 
@@ -30,7 +33,7 @@ class MapPageState extends State<MapPage> {
 
   var latitude = 35.766538;
   var longitude = -78.673005;
-  var currentlocation = new Location(35.766538,-78.673005);
+  var currentlocation = new Location(35.766538, -78.673005);
 
 
   @override
@@ -47,9 +50,9 @@ class MapPageState extends State<MapPage> {
 
   AppBar buildAppBar(BuildContext context) {
     return new AppBar(
-        title: new Text('Search'),
-        actions: [searchBar.getSearchAction(context)],
-        backgroundColor: Colors.orange,);
+      title: new Text('Search'),
+      actions: [searchBar.getSearchAction(context)],
+      backgroundColor: Colors.orange,);
   }
 
   MapPageState() {
@@ -61,8 +64,10 @@ class MapPageState extends State<MapPage> {
   }
 
   void onSubmitted(String value) {
-    setState(() => _scaffoldKey.currentState
-        .showSnackBar(new SnackBar(content: new Text('You wrote $value!'))));
+    setState(() =>
+        _scaffoldKey.currentState
+            .showSnackBar(
+            new SnackBar(content: new Text('You wrote $value!'))));
   }
 
   void _showMapView() {
@@ -79,15 +84,16 @@ class MapPageState extends State<MapPage> {
 //                14.0 // zoom level
 //            ),
             title: "Your location"),
-        toolbarActions: [new ToolbarAction("Close", 1), new ToolbarAction("Confirm", 2)]);
+        toolbarActions: [
+          new ToolbarAction("Close", 1), new ToolbarAction("Confirm", 2)]);
 
-    mapView.onMapReady.listen((Null _){
-      mapView.setMarkers([new Marker("1", "selected",latitude, longitude)]);
+    mapView.onMapReady.listen((Null _) {
+      mapView.setMarkers([new Marker("1", "selected", latitude, longitude)]);
     });
 
     mapView.onMapTapped.listen((location) {
       print("tapped location is $location");
-      mapView.setMarkers([new Marker("1", "selected",latitude, longitude)]);
+      mapView.setMarkers([new Marker("1", "selected", latitude, longitude)]);
       print(mapView.markers.length);
     });
 
@@ -96,22 +102,21 @@ class MapPageState extends State<MapPage> {
         mapView.dismiss();
       } else if (id == 2) {
         print("len is: " + mapView.markers.length.toString());
-        if (mapView.markers.isNotEmpty){
+        if (mapView.markers.isNotEmpty) {
           setState(() {
-            imageUri = staticMapProvider.getStaticUriWithMarkers(mapView.markers);
+            imageUri =
+                staticMapProvider.getStaticUriWithMarkers(mapView.markers);
             currentlocation = Location(latitude, longitude);
           });
 
           mapView.dismiss();
         }
-
       }
     });
-
   }
 
 
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return new Scaffold(
       appBar: searchBar.build(context),
       key: _scaffoldKey,
@@ -123,85 +128,47 @@ class MapPageState extends State<MapPage> {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: new Center(
                 child: ClipRRect(
-                  child: new Image.network(imageUri.toString()),
+                  child: profilePicture(),
+
+
                   borderRadius: new BorderRadius.all(new Radius.circular(20.0)),
                 ),
               ),
-            )
+            ),
+
+
+            new MaterialButton(
+              height: 40.0,
+              minWidth: 100.0,
+              color: Colors.teal,
+              textColor: Colors.white,
+              child: new Text("widget test"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => widgetTest())
+                );
+              },
+              splashColor: Colors.amber,
+
+            ),
+
           ],
-        ),
+
+        )
+        ,
       ),
+
       floatingActionButton: new FloatingActionButton(
         onPressed: _showMapView,
         tooltip: 'show map',
         child: new Icon(Icons.map),
       ),
 
-    drawer: new Drawer(
-        child: new ListView(
-          children: <Widget>[
-            new UserAccountsDrawerHeader(
-                accountName: new Text('John Doe'),
-                accountEmail: new Text('jd@gmail.com'),
-              currentAccountPicture: new CircleAvatar(
-                backgroundColor: Colors.black26,
 
-                backgroundImage: NetworkImage('https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
-              ),
-              decoration: new BoxDecoration(
-                color: Colors.orange
-              ),
-            ),
-            new ListTile(
-              title: new Text("Profile"),
-              trailing: new Icon(Icons.arrow_forward),
-              onTap: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => UserDetailBody())
-                );
-              },
 
-            ),
-
-            new ListTile(
-              title: new Text("Inbox"),
-              trailing: new Icon(Icons.message),
-              onTap: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => InboxPage())
-                );
-                },
-
-            ),
-            new ListTile(
-              title: new Text("Sign Out"),
-              trailing: new Icon(Icons.error_outline),
-              onTap: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyApp())
-                );
-              },
-
-            )
-          ],
-        ),
-      ),
 
     );
   }
-
-//  Future<void> _setCurrentLocation() async {
-//    geo.Geolocation.currentLocation(accuracy: geo.LocationAccuracy.best)
-//        .listen((result) {
-//      if (result.isSuccessful) {
-//        setState(() {
-//          currentLocation = result.location;
-//        });
-//      }
-//    });
-//  }
 
 }
