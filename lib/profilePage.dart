@@ -40,7 +40,7 @@ class UserDetailBodyState extends State<UserDetailBody> {
                   decoration: BoxDecoration(
                     color: Colors.red,
                     image: DecorationImage(
-                        image: NetworkImage('https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
+                        image: NetworkImage("https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg"),
                         fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(75.0)),

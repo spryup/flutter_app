@@ -128,7 +128,7 @@ class MapPageState extends State<MapPage> {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: new Center(
                 child: ClipRRect(
-                  child: profilePicture(),
+
 
 
                   borderRadius: new BorderRadius.all(new Radius.circular(20.0)),
