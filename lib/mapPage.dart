@@ -10,6 +10,7 @@ import 'keys.dart';
 
 import 'profile_picture.dart';
 import 'widget_test.dart';
+import 'profile_page_test.dart';
 //import 'package:location/location.dart';
 //import 'package:flutter_map/flutter_map.dart';
 
@@ -147,6 +148,22 @@ class MapPageState extends State<MapPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => widgetTest())
+                );
+              },
+              splashColor: Colors.amber,
+
+            ),
+
+            new MaterialButton(
+              height: 40.0,
+              minWidth: 100.0,
+              color: Colors.teal,
+              textColor: Colors.white,
+              child: new Text("profile test"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfileTest())
                 );
               },
               splashColor: Colors.amber,

@@ -6,11 +6,16 @@ class widgetTest extends StatelessWidget {
   @override
 //TODO: Implement "slide to dismiss" method
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 5,
-        itemBuilder: (context,int) {
-          return TestContainer();
-        }
+    return Scaffold(
+      appBar: new AppBar(
+
+      ),
+      body: ListView.builder(
+        itemCount: 5,
+          itemBuilder: (context,int) {
+            return TestContainer();
+          }
+      ),
     );
   }
 }
