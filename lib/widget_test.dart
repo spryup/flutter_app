@@ -4,6 +4,7 @@ import 'profile_picture.dart';
 
 class widgetTest extends StatelessWidget {
   @override
+//TODO: Implement "slide to dismiss" method
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: 5,
@@ -42,25 +43,29 @@ Widget TestContainer() {
       ),
       child : new Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          new Container(
-            height: 120.0,
-            width: 120.0,
-            margin: const EdgeInsets.fromLTRB(15.0, 15.0, 14.0, 10.0),
-            child: new CircleAvatar(
-              child: new Container(
-                decoration: new BoxDecoration(
-                    color: const Color(0xffc94b6),
-                    image: new DecorationImage(
-                      image: NetworkImage('https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
-                    ),
-                    borderRadius: new BorderRadius.all(new Radius.circular(80.0))
-                ),
-              ),
 
-            ),
-          ),
-          new Column(
+        children: <Widget>[
+
+             new Column(
+               children: <Widget>[
+                 ProfilePic(),
+                 new RichText(
+                   text: TextSpan(
+                     text:'5 miles',  //TODO:
+                     style: TextStyle(
+                       fontWeight: FontWeight.bold,
+                       fontSize: 20.0,
+                       color: Colors.grey
+
+                     ),
+                   ),
+
+                 ),
+                 MessageButton(),
+               ],
+             ),
+
+            new Column(
             children: <Widget>[
 
             Container(
@@ -81,9 +86,12 @@ Widget TestContainer() {
               ),
 
             ),
+
               //TODO : make the value dynamic
+
               child: SportsType("Golf"),
           ),
+
               skillDisplay(),
               skillDisplay(),
               skillDisplay(),
@@ -92,9 +100,11 @@ Widget TestContainer() {
 
 
             ],
+
           ),
 
         ],
+
 
       ),
 
@@ -170,6 +180,8 @@ Widget SkillBlockActive() {
     height: 15.0,
     width: 15.0,
     color: Colors.red,
+
+
   );
 }
 
@@ -182,4 +194,45 @@ Widget SkillBlockNotActive() {
     width: 15.0,
     color: Colors.grey,
   );
+}
+
+//profilePic
+//TODO: change the picture link
+
+Widget ProfilePic() {
+  return new  Container(
+    height: 120.0,
+    width: 120.0,
+    margin: const EdgeInsets.fromLTRB(15.0, 15.0, 14.0, 10.0),
+    child: new CircleAvatar(
+      child: new Container(
+        decoration: new BoxDecoration(
+            color: const Color(0xffc94b6),
+            image: new DecorationImage(
+              image: NetworkImage('https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
+            ),
+            borderRadius: new BorderRadius.all(new Radius.circular(80.0))
+        ),
+      ),
+
+    ),
+  );
+}
+
+//Message Button
+
+Widget MessageButton() {
+  return new RawMaterialButton(
+    onPressed: () {},
+    child: new Icon(
+      Icons.message,
+      color: Colors.blue,
+      size: 35.0,
+    ),
+    shape: new CircleBorder(),
+    elevation: 2.0,
+    fillColor: Colors.white,
+    padding: const EdgeInsets.all(15.0),
+  );
+
 }
