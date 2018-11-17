@@ -8,7 +8,7 @@ import 'package:map_view/map_view.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
 import 'keys.dart';
 
-import 'profile_picture.dart';
+
 import 'widget_test.dart';
 import 'profile_page_test.dart';
 //import 'package:location/location.dart';
