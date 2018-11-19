@@ -103,7 +103,7 @@ Widget NumOfMiles(int num_of_miles) {
 
   return new RichText(
     text: TextSpan(
-      text:'${num_of_miles} Miles',
+      text:'${num_of_miles} Miles from here',
       style: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 20.0,
