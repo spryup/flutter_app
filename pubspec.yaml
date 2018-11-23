@@ -10,6 +10,9 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_search_bar: ^2.0.6
   map_view: ^0.0.14
+  firebase_auth: ^0.6.6
+  google_sign_in: ^3.2.4
+  cloud_firestore: ^0.8.2+3
   #location: ^1.4.1
   #flutter_map: ^0.1.4
   #geolocation: ^0.2.1
