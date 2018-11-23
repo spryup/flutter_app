@@ -31,9 +31,24 @@ Future<String> _testSignInWithGoogle() async {
   return 'signInWithGoogle succeeded: $user';
 }
 
+//Google Sign in
 Future<FirebaseUser> _signIn() async{
   GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
-  
+  GoogleSignInAuthentication gSA = await googleSignInAccount.authentication;
+
+  FirebaseUser user = await _auth.signInWithGoogle(
+      idToken: gSA.idToken,
+      accessToken: gSA.accessToken,
+  );
+
+  print("user name : ${user.displayName}");
+}
+
+
+//Google sign Out
+void _signOut() {
+  _googleSignIn.signOut();
+  print("user signed out");
 }
 
 class MyApp extends StatelessWidget {
@@ -162,7 +177,19 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                );
 
                              }
-                         )
+                         ),
+                         new Padding(
+                             padding: const EdgeInsets.only(top:20.0)
+                         ),
+                         new MaterialButton(
+                             height: 40.0,
+                             minWidth: 100.0,
+                             color: Colors.teal,
+                             textColor: Colors.white,
+                             child: new Text("Google Test SignOut"),
+                             splashColor: Colors.amber,
+                             onPressed: _signOut,
+                         ),
                        ],
                      ),
                    ),
