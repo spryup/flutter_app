@@ -7,6 +7,7 @@ import 'profile.dart';
 import 'package:map_view/map_view.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
 import 'keys.dart';
+import 'chatScreenMain.dart';
 
 
 import 'widget_test.dart';
@@ -164,6 +165,22 @@ class MapPageState extends State<MapPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ProfileTest())
+                );
+              },
+              splashColor: Colors.amber,
+
+            ),
+
+            new MaterialButton(
+              height: 40.0,
+              minWidth: 100.0,
+              color: Colors.teal,
+              textColor: Colors.white,
+              child: new Text("chat screen"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FlutterChatApp())
                 );
               },
               splashColor: Colors.amber,
