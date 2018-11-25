@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'mobileSignUp.dart';
 import 'mapPage.dart';
-
+import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import 'phoneNumberAuthTest.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -69,7 +71,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixin{
-
 
 
   @override
@@ -190,6 +191,24 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                              splashColor: Colors.amber,
                              onPressed: _signOut,
                          ),
+                         new Padding(
+                             padding: const EdgeInsets.only(top:20.0)
+                         ),
+                         new MaterialButton(
+                           height: 40.0,
+                           minWidth: 100.0,
+                           color: Colors.teal,
+                           textColor: Colors.white,
+                           child: new Text("SignIn with phone Number"),
+                           splashColor: Colors.amber,
+                           onPressed: () {
+                             Navigator.push(
+                                 context,
+                                 MaterialPageRoute(builder: (context) => PhoneAuth())
+                             );
+                           },
+                         ),
+
                        ],
                      ),
                    ),
